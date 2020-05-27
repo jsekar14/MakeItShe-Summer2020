@@ -166,7 +166,57 @@ function applyContent () {
         });
 
 
-/**
+ str = str.replace( regex_word, function ( matched, index, input ) {
+
+            var lastSymbol = input[ index + matched.length ] || '';
+
+            if ( lastSymbol !== '"' && lastSymbol !== '`' && lastSymbol !== "'" && lastSymbol !== '' && lastSymbol !== ',' && lastSymbol !== '.' && lastSymbol !== ')' && lastSymbol !== ';' && lastSymbol !== '!' && lastSymbol !== '?' && lastSymbol !== ' ' ) {
+
+                return matched;
+
+            }
+
+            if ( matched === 'Mr' || matched === 'M' || matched === 'Lord' ) {
+
+                // Delete surname after Mr, Ms, M, Mme, Lady, Lord
+                turnMr = true;
+
+            }
+
+            if ( words.indexOf( matched ) >= 0 ) {
+
+                var replacement = '';
+
+                if ( typeof( all_words[ matched ] ) === 'undefined' ) {
+
+                    replacement = all_words[ matched.toLowerCase() ];
+
+                    if ( matched[0] == matched[0].toUpperCase() ) {
+
+                        if ( replacement ) {
+
+                            replacement = replacement.charAt(0).toUpperCase() + replacement.slice(1);
+
+                        }
+
+                    }
+
+                } else {
+
+                    replacement = all_words[ matched ];
+
+                }
+
+                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
+
+            } else {
+
+                return matched;
+
+            }
+
+        });
+
         str = str.replace( regex_name, function ( matched ) {
 
             if ( turnMr === true && words.length === 1 ) {
@@ -191,10 +241,8 @@ function applyContent () {
 
         return str;
 
-
     });
 
-    **/
     
     m_percent = Math.round( m_count / (m_count + f_count) * 100 );
     f_percent = Math.round( f_count / (m_count + f_count) * 100 );
@@ -202,7 +250,7 @@ function applyContent () {
     processed = true;
   
 
-});
+
 
 };
 
