@@ -166,9 +166,10 @@ function applyContent () {
         });
 
 
- str = str.replace( regex_word, function ( matched, index, input ) {
-
+str = str.replace( regex_word, function ( matched, index, input ) {
+            
             var lastSymbol = input[ index + matched.length ] || '';
+     
 
             if ( lastSymbol !== '"' && lastSymbol !== '`' && lastSymbol !== "'" && lastSymbol !== '' && lastSymbol !== ',' && lastSymbol !== '.' && lastSymbol !== ')' && lastSymbol !== ';' && lastSymbol !== '!' && lastSymbol !== '?' && lastSymbol !== ' ' ) {
 
@@ -184,6 +185,7 @@ function applyContent () {
             }
 
             if ( words.indexOf( matched ) >= 0 ) {
+                var i = words.indexOf(matched);
 
                 var replacement = '';
 
@@ -207,7 +209,7 @@ function applyContent () {
 
                 }
 
-                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
+                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
             } else {
 
@@ -218,6 +220,9 @@ function applyContent () {
         });
 
         str = str.replace( regex_name, function ( matched ) {
+            
+
+            var i = words.indexOf(matched);
 
             if ( turnMr === true && words.length === 1 ) {
 
@@ -228,8 +233,7 @@ function applyContent () {
 
             if ( words.indexOf( matched ) >= 0 ) {
 
-                replacement = all_words[ matched ];
-                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
+                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
             } else {
 
@@ -242,6 +246,7 @@ function applyContent () {
         return str;
 
     });
+
 
     
     m_percent = Math.round( m_count / (m_count + f_count) * 100 );
