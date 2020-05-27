@@ -1,6 +1,7 @@
 .ignore-css{all:unset;}
 .ignore-css.replacement {
-    color:red;
+    background-color:red;
+    color: black;
     position: relative;
     overflow: visible;
 }
