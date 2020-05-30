@@ -66,7 +66,9 @@ function applyContent () {
         }
 
         // Delete surname after Mr, Ms, M, Mme, Lady, Lord
-
+        
+        var gender[];
+        gender.length = words.length;
         for ( var i = 0; i < words.length; i ++ ) {
 
             var w = words[ i ].replace( /[!?,.;`' ]/, '' );
@@ -99,13 +101,14 @@ function applyContent () {
             if ( all_male_words.indexOf( words[ i ].toLowerCase() ) >= 0 ) {
 
                 m_count ++;
+                gender[i] = "m";
 
             }
 
             if ( all_female_words.indexOf( words[ i ].toLowerCase() ) >= 0 ) {
 
                 f_count ++;
-
+                gender[i] = "f";
             }
 
         }
@@ -132,30 +135,14 @@ function applyContent () {
             if ( words.indexOf( matched ) >= 0 ) {
 
                 var replacement = '';
+                var i = words.indexOf(matched);
                 
-
-                if ( typeof( all_words[ matched ] ) === 'undefined' ) {
-
-                    replacement = all_words[ matched.toLowerCase() ];
+                if (gender[i] === 'f'){
                     
-
-                    if ( matched[0] == matched[0].toUpperCase() ) {
-
-                        if ( replacement ) {
-
-                            replacement = replacement.charAt(0).toUpperCase() + replacement.slice(1);
-
-                        }
-
-                    }
-
-                } else {
-
-                    replacement = all_words[ matched ];
-
+                    return '<span style = "background-color: lightgreen">' + words[i] + '<span>';
                 }
-
-                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
+                 
+                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
             } else {
 
@@ -191,23 +178,6 @@ str = str.replace( regex_word, function ( matched, index, input ) {
 
                 if ( typeof( all_words[ matched ] ) === 'undefined' ) {
 
-                    replacement = all_words[ matched.toLowerCase() ];
-
-                    if ( matched[0] == matched[0].toUpperCase() ) {
-
-                        if ( replacement ) {
-
-                            replacement = replacement.charAt(0).toUpperCase() + replacement.slice(1);
-
-                        }
-
-                    }
-
-                } else {
-
-                    replacement = all_words[ matched ];
-
-                }
 
                 return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
