@@ -111,41 +111,7 @@ function applyContent () {
 
         // Replace
 
-        str = str.replace( regex_word, function ( matched, index, input ) {
-
-            var lastSymbol = input[ index + matched.length ] || '';
-
-            if ( lastSymbol !== '"' && lastSymbol !== '`' && lastSymbol !== "'" && lastSymbol !== '' && lastSymbol !== ',' && lastSymbol !== '.' && lastSymbol !== ')' && lastSymbol !== ';' && lastSymbol !== '!' && lastSymbol !== '?' && lastSymbol !== ' ' ) {
-
-                return matched;
-
-            }
-
-            if ( matched === 'Mr' || matched === 'M' || matched === 'Lord' ) {
-
-                // Delete surname after Mr, Ms, M, Mme, Lady, Lord
-                turnMr = true;
-
-            }
-
-            if ( words.indexOf( matched ) >= 0 ) {
-
-                var replacement = '';
-                var i = words.indexOf(matched);
-             
-                 
-                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
-
-            } else {
-
-                return matched;
-
-            }
-
-        });
-
-
-str = str.replace( regex_word, function ( matched, index, input ) {
+    str = str.replace( regex_word, function ( matched, index, input ) {
             
             var lastSymbol = input[ index + matched.length ] || '';
      
