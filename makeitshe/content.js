@@ -67,8 +67,6 @@ function applyContent () {
 
         // Delete surname after Mr, Ms, M, Mme, Lady, Lord
         
-        var gender = [];
-        gender.length = words.length;
         for ( var i = 0; i < words.length; i ++ ) {
 
             var w = words[ i ].replace( /[!?,.;`' ]/, '' );
@@ -101,14 +99,12 @@ function applyContent () {
             if ( all_male_words.indexOf( words[ i ].toLowerCase() ) >= 0 ) {
 
                 m_count ++;
-                gender[i] = "m";
 
             }
 
             if ( all_female_words.indexOf( words[ i ].toLowerCase() ) >= 0 ) {
 
                 f_count ++;
-                gender[i] = "f";
             }
 
         }
@@ -136,11 +132,7 @@ function applyContent () {
 
                 var replacement = '';
                 var i = words.indexOf(matched);
-                
-                if (gender[i] === 'f'){
-                    
-                    return '<span style = "background-color: lightgreen">' + words[i] + '<span>';
-                }
+             
                  
                 return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
