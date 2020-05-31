@@ -67,7 +67,7 @@ function applyContent () {
 
         // Delete surname after Mr, Ms, M, Mme, Lady, Lord
         
-        var gender[];
+        var gender = [];
         gender.length = words.length;
         for ( var i = 0; i < words.length; i ++ ) {
 
