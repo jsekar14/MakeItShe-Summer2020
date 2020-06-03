@@ -162,7 +162,7 @@ function applyContent () {
 
                 } */
 
-                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
+                return '<span class="makeitshe ignore-css replacement" style = "color: green">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
             } else {
 
