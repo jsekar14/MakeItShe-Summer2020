@@ -1,11 +1,12 @@
+  
 
 var turn_on = false; // Default
 var name_dict = window.name_dict;
 var word_dict = window.word_dict;
 var all_words = Object.assign( {}, name_dict, word_dict );
 
-var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b"), "gi" );
-var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|"), "g" );
+var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b") + Object.values( word_dict ).join("\\b|\\b"), "gi" );
+var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|") + Object.values( name_dict).join("|"), "g" );
 
 var m_count = 0, f_count = 0;
 var m_percent = 0, f_percent = 0;
@@ -13,11 +14,10 @@ var processed = false;
 var values_name = fnames;
 var turnMr = false;
 
-var all_male_words = Object.keys( word_dict).concat( Object.keys( name_dict ) );;
-var all_female_words = Object.values( word_dict ).concat( Object.values( name_dict ) );;
+var all_male_words = Object.keys( word_dict ).concat( Object.keys( name_dict ) );
+var all_female_words = Object.values( word_dict ).concat( Object.values( name_dict ) );
 
 //
-
 
 for ( var i = 0; i < all_male_words.length; i ++ ) {
 
@@ -79,7 +79,7 @@ function applyContent () {
 
         }
 
-        //Delete surname after female name
+        // Delete surname after female name
 
         for ( var i = 0; i < words.length; i ++ ) {
 
@@ -90,7 +90,6 @@ function applyContent () {
             }
 
         }
-        
 
         // Count Male/Female Words
 
@@ -113,8 +112,9 @@ function applyContent () {
         // Replace
 
         str = str.replace( regex_word, function ( matched, index, input ) {
-
+            
             var lastSymbol = input[ index + matched.length ] || '';
+     
 
             if ( lastSymbol !== '"' && lastSymbol !== '`' && lastSymbol !== "'" && lastSymbol !== '' && lastSymbol !== ',' && lastSymbol !== '.' && lastSymbol !== ')' && lastSymbol !== ';' && lastSymbol !== '!' && lastSymbol !== '?' && lastSymbol !== ' ' ) {
 
@@ -130,60 +130,7 @@ function applyContent () {
             }
 
             if ( words.indexOf( matched ) >= 0 ) {
-
-                var replacement = '';
-                
-
-                if ( typeof( all_words[ matched ] ) === 'undefined' ) {
-
-                    replacement = all_words[ matched.toLowerCase() ];
-                    
-
-                    if ( matched[0] == matched[0].toUpperCase() ) {
-
-                        if ( replacement ) {
-
-                            replacement = replacement.charAt(0).toUpperCase() + replacement.slice(1);
-
-                        }
-
-                    }
-
-                } else {
-
-                    replacement = all_words[ matched ];
-
-                }
-
-                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
-
-            } else {
-
-                return matched;
-
-            }
-
-        });
-
-
- str = str.replace( regex_word, function ( matched, index, input ) {
-
-            var lastSymbol = input[ index + matched.length ] || '';
-
-            if ( lastSymbol !== '"' && lastSymbol !== '`' && lastSymbol !== "'" && lastSymbol !== '' && lastSymbol !== ',' && lastSymbol !== '.' && lastSymbol !== ')' && lastSymbol !== ';' && lastSymbol !== '!' && lastSymbol !== '?' && lastSymbol !== ' ' ) {
-
-                return matched;
-
-            }
-
-            if ( matched === 'Mr' || matched === 'M' || matched === 'Lord' ) {
-
-                // Delete surname after Mr, Ms, M, Mme, Lady, Lord
-                turnMr = true;
-
-            }
-
-            if ( words.indexOf( matched ) >= 0 ) {
+                var i = words.indexOf(matched);
 
                 var replacement = '';
 
@@ -207,7 +154,7 @@ function applyContent () {
 
                 }
 
-                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
+                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
             } else {
 
@@ -218,6 +165,9 @@ function applyContent () {
         });
 
         str = str.replace( regex_name, function ( matched ) {
+            
+
+            var i = words.indexOf(matched);
 
             if ( turnMr === true && words.length === 1 ) {
 
@@ -228,8 +178,7 @@ function applyContent () {
 
             if ( words.indexOf( matched ) >= 0 ) {
 
-                replacement = all_words[ matched ];
-                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
+                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
             } else {
 
@@ -243,14 +192,10 @@ function applyContent () {
 
     });
 
-    
     m_percent = Math.round( m_count / (m_count + f_count) * 100 );
     f_percent = Math.round( f_count / (m_count + f_count) * 100 );
 
     processed = true;
-  
-
-
 
 };
 
