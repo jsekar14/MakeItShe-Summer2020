@@ -134,7 +134,7 @@ function applyContent () {
 
                 var replacement = '';
 
-                if ( typeof( all_words[ matched ] ) === 'undefined' ) {
+               /* if ( typeof( all_words[ matched ] ) === 'undefined' ) {
 
                     replacement = all_words[ matched.toLowerCase() ];
 
@@ -152,7 +152,7 @@ function applyContent () {
 
                     replacement = all_words[ matched ];
 
-                }
+                } */
 
                 return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
