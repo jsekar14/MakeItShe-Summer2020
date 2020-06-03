@@ -129,7 +129,7 @@ function applyContent () {
 
             }
 
-            if ( words.indexOf( matched ) >= 0 ) {
+            if ( words.indexOf( matched ) >= 0 && all_male_words.indexOf( matched ) >= 0) {
                 var i = words.indexOf(matched);
 
                 var replacement = '';
