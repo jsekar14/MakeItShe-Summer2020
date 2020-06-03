@@ -132,14 +132,15 @@ function applyContent () {
                 var i = words.indexOf(matched);
 
                 var replacement = '';
+                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
+
+            }
           
             if ( words.indexOf( matched ) >= 0 && all_female_words.indexOf( matched ) >= 0) {
                 var i = words.indexOf(matched);
 
                 var replacement = '';
-                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
-            }
 
                /* if ( typeof( all_words[ matched ] ) === 'undefined' ) {
 
