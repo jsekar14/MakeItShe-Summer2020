@@ -193,7 +193,7 @@ function applyContent () {
           
             if ( words.indexOf( matched ) >= 0 && all_female_words.indexOf( matched ) >= 0) {
 
-                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
+                return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
             }
           else {
