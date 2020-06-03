@@ -162,7 +162,7 @@ function applyContent () {
 
                 } */
 
-                return '<span style = "background-color: lightgreen>' + words[i] + '<span>' + matched + '</span></span>';
+                return '<span style = "background-color: lightgreen">' + words[i] + '<span>' + matched + '</span></span>';
 
             } else {
 
