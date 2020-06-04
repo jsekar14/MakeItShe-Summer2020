@@ -74,12 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (siteStateList[activeDomain] !== true) {
 
         $('#on-off').switchButton({ checked: false, labels_placement: "left" });
+        $('#highlighting').switchButton({ checked: false, labels_placement: "left" });
         $('#content').hide();
         $('#disabled').show();
 
     } else {
 
         $('#on-off').switchButton({ checked: true, labels_placement: "left" });
+        $('#highlighting').switchButton({ checked: true, labels_placement: "left" });
         $('#content').show();
         $('#disabled').hide();
 
