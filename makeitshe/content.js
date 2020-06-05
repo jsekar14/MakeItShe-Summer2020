@@ -110,11 +110,6 @@ function applyContent () {
 
         }
 
-        // Replace
-      $("highlighting").click(function(){
-            alert( "highlight selected" );
-          });
-
 
         str = str.replace( regex_word, function ( matched, index, input ) {
             
