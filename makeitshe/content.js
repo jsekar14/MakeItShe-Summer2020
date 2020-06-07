@@ -415,6 +415,7 @@ chrome.runtime.onMessage.addListener(
  function(request, sender, sendResponse) {
    if( request.message === "fetch_top_domains" ) {
       var highlight = true; 
+      console.log("hello world");
     }
   }
 );
