@@ -411,6 +411,13 @@ $("#email-message").keyup(function(){
 
 });
 
+chrome.runtime.onMessage.addListener(
+ function(request, sender, sendResponse) {
+   if( request.message === "fetch_top_domains" ) {
+      var highlight = true; 
+    }
+  }
+);
 
 
  var message_suggestions = {
