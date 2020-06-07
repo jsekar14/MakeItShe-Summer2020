@@ -8,6 +8,15 @@ function updateSiteStateList(site, state) {
 
 };
 
+$(function() {
+ // Send a message to content.js to fetch all the top domains
+ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+   var activeTab = tabs[0];
+   chrome.tabs.sendMessage(activeTab.id, {"message": "fetch_top_domains"});
+ });
+});
+
+
 
 var m, f;
 
