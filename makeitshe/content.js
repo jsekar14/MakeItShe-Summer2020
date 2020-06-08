@@ -129,7 +129,7 @@ function applyContent () {
                 turnMr = true;
 
             }
-          if ( words.indexOf( matched ) >= 0 && all_male_words.indexOf( matched ) >= 0) {
+          if ( words.indexOf( matched ) >= 0 && all_male_words.indexOf( matched ) >= 0 && highlighting === true) {
                 var i = words.indexOf(matched);
 
                 var replacement = '';
@@ -137,7 +137,7 @@ function applyContent () {
 
             }
           
-            if ( words.indexOf( matched ) >= 0 && all_female_words.indexOf( matched ) >= 0) {
+            if ( words.indexOf( matched ) >= 0 && all_female_words.indexOf( matched ) >= 0 && highlighting === true) {
                 var i = words.indexOf(matched);
 
                 var replacement = '';
