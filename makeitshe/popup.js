@@ -1,6 +1,8 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
+
+
 function updateSiteStateList(site, state) {
 
     siteStateList[site] = state;
@@ -10,9 +12,12 @@ function updateSiteStateList(site, state) {
 
 $(function() {
  // Send a message to content.js to fetch all the top domains
+ var hello = true; 
+ if (hello === true){
  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
    var activeTab = tabs[0];
    chrome.tabs.sendMessage(activeTab.id, {"message": "hello"});
+ }
  });
 });
 
