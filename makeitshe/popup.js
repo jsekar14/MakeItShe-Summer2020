@@ -11,7 +11,7 @@ function updateSiteStateList(site, state) {
 };
 
 $(function() {
- // Send a message to content.js to fetch all the top domains
+ // Send a message to content.js 
  var hello = true; 
  if (hello === true){
  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
