@@ -185,14 +185,14 @@ function applyContent () {
 
             }
 
-            if ( words.indexOf( matched ) >= 0 ) {
+            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
             } 
           
           
-            if ( words.indexOf( matched ) >= 0 && fnames.indexOf( matched ) >= 0) {
+            if ( words.indexOf( matched ) >= 0 && fnames.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
