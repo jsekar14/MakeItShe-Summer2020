@@ -2,7 +2,7 @@ var siteStateList;
 var activeDomain, currentUrl;
 
 
-function checker(){
+
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {data: text}, function(response) {
             $('#status').html('changed data in page');
@@ -11,7 +11,6 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     });
 });
 
-};
 
 
 function updateSiteStateList(site, state) {
