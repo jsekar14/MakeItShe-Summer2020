@@ -5,6 +5,7 @@ var name_dict = window.name_dict;
 var word_dict = window.word_dict;
 var all_words = Object.assign( {}, name_dict, word_dict );
 var fnames = window.fnames;
+var highlighting = false; 
 
 var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b") + Object.values( word_dict ).join("\\b|\\b"), "gi" );
 var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|") +  fnames.join("|"), "g" );
@@ -413,7 +414,7 @@ $("#email-message").keyup(function(){
 
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
     console.log("something happening from the extension");
-    var highlight = true;
+    highlighting = true;
     console.log(highlight);
 });
 
