@@ -10,17 +10,6 @@ function updateSiteStateList(site, state) {
 
 };
 
-$(function() {
- // Send a message to content.js 
- var hello = true; 
- if (hello === true){
- chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-   var activeTab = tabs[0];
-   chrome.tabs.sendMessage(activeTab.id, {"message": "hello"});
- }
- });
-});
-
 
 
 var m, f;
