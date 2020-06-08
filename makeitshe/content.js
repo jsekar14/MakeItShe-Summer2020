@@ -413,7 +413,7 @@ $("#email-message").keyup(function(){
 
 chrome.runtime.onMessage.addListener(
  function(request, sender, sendResponse) {
-   if( request.message === "fetch_top_domains" ) {
+   if( request.message === "hello" ) {
       var highlight = true; 
       console.log("hello world");
     }
