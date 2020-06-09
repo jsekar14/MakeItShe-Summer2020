@@ -419,6 +419,15 @@ chrome.runtime.onMessage.addListener(
                 "from the extension");
     if (request.greeting == "highlighting"){
       sendResponse({farewell: "goodbye"});
+      console.log(highlighting);
+      if (highlighting === true){
+        highlighting = false;
+        console.log(highlighting)
+      }
+      else {
+        highlighting = true; 
+        console.log(highlighting)
+      }
       applyContent();
     }
   });
