@@ -60,34 +60,38 @@ function setStats(stats) {
 
 };
 
-function highlight(){
-        var highlight = document.getElementById("myCheck");
-        console.log("function executing");
-        if (highlight.checked == true){
-            chrome.runtime.sendMessage(tabs[0].id, {greeting: "highlight"}, function(response) {
-            });
-        }
-        else {
-           
-            chrome.runtime.sendMessage(tabs[0].id, {greeting: "nohighlight"}, function(response) {
-            });
-        }
 
-};
+        
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.querySelector('.highlighting').addEventListener('click', () => {
     
     siteStateList = JSON.parse(localStorage.getItem('siteStateList')) || {};
     activeDomain = localStorage.getItem('activeDomain');
     
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    document.querySelector('.highlighting').addEventListener('click', highlight);
-    console.log("this is sending");
+    
+    var highlight = document.getElementById("myCheck");
+    console.log("highlight function executing");
         
-    });
+    if (highlight.checked == true){
+        
+        chrome.runtime.sendMessage(tabs[0].id, {greeting: "highlight"}, function(response) {
+            
+       });
+    }
+    else {
+           
+        chrome.runtime.sendMessage(tabs[0].id, {greeting: "nohighlight"}, function(response) {
+           
+       });
+      
+    }
     
     });
+    });
+   
+     
 
 
 document.addEventListener('DOMContentLoaded', () => {
