@@ -79,8 +79,7 @@ function highlight(){
 
 document.addEventListener('DOMContentLoaded', function () {
     
-    document.querySelector('.highlighting').addEventListener('click', clickHandler);
-    highlight();
+    document.querySelector('.highlighting').addEventListener('click', highlight);
     
     });
 
