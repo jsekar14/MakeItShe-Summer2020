@@ -66,20 +66,13 @@ function setStats(stats) {
 
 document.querySelector('.highlighting').addEventListener('click', () => {
     
-    siteStateList = JSON.parse(localStorage.getItem('siteStateList')) || {};
-    activeDomain = localStorage.getItem('activeDomain');
     
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    
-    console.log("highlight function executing");
-        
-    if (highlight.checked == true){
-        
-            chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlight"});
-    }
-    
-    });
-    });
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+    console.log(response.farewell);
+  });
+});
+});
    
      
 
