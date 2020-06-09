@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
         var highlight = document.getElementbyId("myCheck");
+        highlight.onClick = checkIt; 
         function checkIt(){
             if (highlight.checked == true){
          chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
