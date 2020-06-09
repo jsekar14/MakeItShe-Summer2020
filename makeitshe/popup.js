@@ -62,18 +62,18 @@ function setStats(stats) {
 
 function main(){
         var highlight = document.getElementById("myCheck");
-            if (highlight.checked == true){
-            chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+        if (highlight.checked == true){
+            chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
             console.log(response.farewell);
             });
-        });
         }
-         else {
-         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+        else {
+           
+            chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
             console.log(response.farewell);
             });
-        });
-        } 
+        }
+
 };
 
 
