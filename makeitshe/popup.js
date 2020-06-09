@@ -62,6 +62,7 @@ function setStats(stats) {
 
 function highlight(){
         var highlight = document.getElementById("myCheck");
+        console.log("function executing");
         if (highlight.checked == true){
             chrome.runtime.sendMessage({greeting: "highlight"}, function(response) {
             console.log(response.farewell);
@@ -79,7 +80,14 @@ function highlight(){
 
 document.addEventListener('DOMContentLoaded', function () {
     
+    siteStateList = JSON.parse(localStorage.getItem('siteStateList')) || {};
+    activeDomain = localStorage.getItem('activeDomain');
+    
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     document.querySelector('.highlighting').addEventListener('click', highlight);
+    console.log("this is sending");
+        
+    });
     
     });
 
