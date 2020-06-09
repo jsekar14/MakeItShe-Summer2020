@@ -75,9 +75,7 @@ document.querySelector('.highlighting').addEventListener('click', () => {
         
     if (highlight.checked == true){
         
-            chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlight"}, function(response) {
-            console.log(response.farewell);
-            });
+            chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlight"});
     }
     
     });
