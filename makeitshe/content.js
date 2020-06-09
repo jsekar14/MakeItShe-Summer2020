@@ -422,11 +422,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       sendResponse({farewell: "goodbye"});
       if (highlighting === true){
         highlighting = false;
-      }
-      else 
+      } else {
         highlighting = true;
-    }
-  applyContent();
+      }
+    applyContent();
   }
   });
 
