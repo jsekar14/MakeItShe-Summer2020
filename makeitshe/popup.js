@@ -60,16 +60,16 @@ function setStats(stats) {
 
 };
 
-function main(){
+function highlight(){
         var highlight = document.getElementById("myCheck");
         if (highlight.checked == true){
-            chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+            chrome.runtime.sendMessage({greeting: "highlight"}, function(response) {
             console.log(response.farewell);
             });
         }
         else {
            
-            chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+            chrome.runtime.sendMessage({greeting: "nohighlight"}, function(response) {
             console.log(response.farewell);
             });
         }
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('highlighting').addEventListener('click', clickHandler);
-        main();
+        highlight();
         });
 
         chrome.tabs.sendMessage(tabs[0].id, { from: 'popup', action: 'getStats' }, setStats);
