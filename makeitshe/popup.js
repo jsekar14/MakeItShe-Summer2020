@@ -76,16 +76,15 @@ document.querySelector('.highlighting').addEventListener('click', () => {
         
     if (highlight.checked == true){
         
-        chrome.runtime.sendMessage(tabs[0].id, {greeting: "highlight"}, function(response) {
-            
-       });
+            chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlight"}, function(response) {
+            console.log(response.farewell);
+            });
     }
     else {
            
         chrome.runtime.sendMessage(tabs[0].id, {greeting: "nohighlight"}, function(response) {
-           
+        console.log(response.farewell);
        });
-      
     }
     
     });
