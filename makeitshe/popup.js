@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
         document.addEventListener('DOMContentLoaded', function () {
-        document.querySelector('highlighting').addEventListener('click', clickHandler);
+        document.querySelector('.highlighting').addEventListener('click', clickHandler);
         highlight();
         });
 
