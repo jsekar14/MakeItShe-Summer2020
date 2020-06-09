@@ -68,16 +68,21 @@ document.addEventListener('DOMContentLoaded', () => {
     activeDomain = localStorage.getItem('activeDomain');
 
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-/*
+
         var highlight = document.getElementbyId("myCheck");
         function checkIt(){
             if (highlight.checked == true){
-         chrome.tabs.sendMessage(tabs[0].id, {data: text}, function(response) {
-            $('#status').html('changed data in page');
-            console.log('success');
+         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+            console.log(response.farewell);
+            });
         });
         }
-        } */
+            else {
+         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+            console.log(response.farewell);
+            });
+        });
+        } 
 
         chrome.tabs.sendMessage(tabs[0].id, { from: 'popup', action: 'getStats' }, setStats);
 
