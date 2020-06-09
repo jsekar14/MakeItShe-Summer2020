@@ -60,6 +60,22 @@ function setStats(stats) {
 
 };
 
+function main(){
+        var highlight = document.getElementById("myCheck");
+            if (highlight.checked == true){
+            chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+            console.log(response.farewell);
+            });
+        });
+        }
+         else {
+         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+            console.log(response.farewell);
+            });
+        });
+        } 
+}
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -69,21 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
-        var highlight = document.getElementById("myCheck");
-        highlight.onClick = checkIt; 
-        function checkIt(){
-            if (highlight.checked == true){
-         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-            console.log(response.farewell);
-            });
+        document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('highlighting').addEventListener('click', clickHandler);
+        main();
         });
-        }
-            else {
-         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-            console.log(response.farewell);
-            });
-        });
-        } 
 
         chrome.tabs.sendMessage(tabs[0].id, { from: 'popup', action: 'getStats' }, setStats);
 
