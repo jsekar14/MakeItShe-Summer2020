@@ -77,6 +77,13 @@ function highlight(){
 };
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    
+    document.querySelector('.highlighting').addEventListener('click', clickHandler);
+    highlight();
+    
+    });
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -84,13 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     activeDomain = localStorage.getItem('activeDomain');
 
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-
-        document.addEventListener('DOMContentLoaded', function () {
-        document.querySelector('.highlighting').addEventListener('click', clickHandler);
-        highlight();
-        });
-
-        chrome.tabs.sendMessage(tabs[0].id, { from: 'popup', action: 'getStats' }, setStats);
+    chrome.tabs.sendMessage(tabs[0].id, { from: 'popup', action: 'getStats' }, setStats);
 
     });
 
