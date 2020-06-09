@@ -412,8 +412,7 @@ $("#email-message").keyup(function(){
 
 });
 
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
@@ -421,12 +420,14 @@ chrome.runtime.onMessage.addListener(
     
     if (request.greeting == "highlighting"){
       sendResponse({farewell: "goodbye"});
-      highlighting = true;
+      if (highlighting === true){
+        highlighting = false;
+      }
+      else 
+        highlighting = true;
     }
-     else if (request.greeting == "nohighlighting"){
-      sendResponse({farewell: "goodbye"});
-      highlighting = false;
-     }
+  applyContent();
+  }
   });
 
 
