@@ -71,7 +71,6 @@ document.querySelector('.highlighting').addEventListener('click', () => {
     
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     
-    var highlight = document.getElementById("myCheck");
     console.log("highlight function executing");
         
     if (highlight.checked == true){
@@ -79,12 +78,6 @@ document.querySelector('.highlighting').addEventListener('click', () => {
             chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlight"}, function(response) {
             console.log(response.farewell);
             });
-    }
-    else {
-           
-        chrome.runtime.sendMessage(tabs[0].id, {greeting: "nohighlight"}, function(response) {
-        console.log(response.farewell);
-       });
     }
     
     });
