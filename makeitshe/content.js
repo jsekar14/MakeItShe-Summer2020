@@ -418,7 +418,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                 "from a content script:" + sender.tab.url :
                 "from the extension");
     
-    if (request.greeting == "highlighting"){
+    if (request.greeting === "highlighting"){
       sendResponse({farewell: "goodbye"});
       if (highlighting === true){
         highlighting = false;
