@@ -412,11 +412,14 @@ $("#email-message").keyup(function(){
 
 });
 
-chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
-    console.log("something happening from the extension");
-    highlighting = true;
-    console.log(highlighting);
-});
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    if (request.greeting == "hello")
+      sendResponse({farewell: "goodbye"});
+  });
 
 
 
