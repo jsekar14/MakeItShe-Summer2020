@@ -64,14 +64,12 @@ function highlight(){
         var highlight = document.getElementById("myCheck");
         console.log("function executing");
         if (highlight.checked == true){
-            chrome.runtime.sendMessage({greeting: "highlight"}, function(response) {
-            console.log(response.farewell);
+            chrome.runtime.sendMessage(tabs[0].id, {greeting: "highlight"}, function(response) {
             });
         }
         else {
            
-            chrome.runtime.sendMessage({greeting: "nohighlight"}, function(response) {
-            console.log(response.farewell);
+            chrome.runtime.sendMessage(tabs[0].id, {greeting: "nohighlight"}, function(response) {
             });
         }
 
