@@ -100,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#on-off').switchButton({ checked: true, labels_placement: "left" });
         $('#content').show();
         $('#disabled').hide();
+        const highlighting = document.querySelector('.hightlighting');
+        highlighting.disabled = true;
 
     }
 
@@ -131,8 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#disabled').show();
             updateSiteStateList(activeDomain, false);
             chrome.browserAction.setIcon({ path: "icon_off.png" });
-            const highlighting = document.querySelector('.hightlighting');
-            highlighting.disabled = true;
+
 
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
