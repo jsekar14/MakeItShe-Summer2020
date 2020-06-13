@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#on-off').switchButton({ checked: false, labels_placement: "left" });
         $('#content').hide();
         $('#disabled').show();
+        const highlighting = document.querySelector('.highlighting');
+        highlighting.disabled = false;
 
     } else {
 
