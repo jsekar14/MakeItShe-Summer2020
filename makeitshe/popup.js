@@ -131,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#disabled').show();
             updateSiteStateList(activeDomain, false);
             chrome.browserAction.setIcon({ path: "icon_off.png" });
+            const highlighting = document.querySelector('.hightlighting');
+            highlighting.disabled = true;
 
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
