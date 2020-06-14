@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#content').hide();
         $('#disabled').show();
         const highlighting = document.querySelector('.highlighting');
-        highlighting.disabled = false;
+        highlighting.disabled = true;
 
     } else {
 
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#content').show();
         $('#disabled').hide();
         const highlighting = document.querySelector('.highlighting');
-        highlighting.disabled = true;
+        highlighting.disabled = false;
 
     }
 
