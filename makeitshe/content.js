@@ -17,7 +17,7 @@ var values_name = fnames;
 var turnMr = false;
 
 var all_male_words = Object.keys( word_dict ).concat( Object.keys( name_dict ) );
-var all_female_words = Object.values( word_dict ).concat( Object.values( name_dict ) );
+var all_female_words = Object.values( word_dict ).concat(fnames);
 
 //
 
