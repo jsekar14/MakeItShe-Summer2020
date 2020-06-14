@@ -115,6 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             $('#content').show();
             $('#disabled').hide();
+            const highlighting = document.querySelector('.highlighting');
+            highlighting.disabled = false;
             updateSiteStateList(activeDomain, true);
             chrome.browserAction.setIcon({ path: "icon_on.png" });
 
@@ -133,6 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             $('#content').hide();
             $('#disabled').show();
+            const highlighting = document.querySelector('.highlighting');
+            highlighting.disabled = true;
             updateSiteStateList(activeDomain, false);
             chrome.browserAction.setIcon({ path: "icon_off.png" });
 
