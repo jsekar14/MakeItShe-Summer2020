@@ -4,15 +4,6 @@ var turn_on = false; // Default
 var name_dict = window.name_dict;
 var word_dict = window.word_dict;
 var values_name = fnames;
-var capital_names = fnames;
-
-for (var i = 0; i < values_name.length; i++)
-{
-  values_name[i] = values_name[i].toLowerCase();
-  values_name[i] = values_name[i][0].toUpperCase() + values_name[i].substr(1);
-} 
-
-var total_fnames = values_name.concat(capital_names);
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
 
@@ -195,7 +186,7 @@ function applyContent () {
 
           
           
-            if ( words.indexOf( matched ) >= 0 && total_fnames.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && values_name.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
@@ -251,6 +242,7 @@ chrome.runtime.onMessage.addListener( function ( msg, sender, sendResponse ) {
               url:url,
               all_male_words:all_male_words,
               all_female_words:all_female_words,
+              values_name:values_name,
               name_dict:name_dict,
               word_dict:word_dict
            }
