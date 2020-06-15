@@ -3,8 +3,9 @@
 var turn_on = false; // Default
 var name_dict = window.name_dict;
 var male_names = Object.keys(name_dict);
+var num_male_names = male_names.length;
 
-for (var i = 0; i < male_names.length; i ++) {
+for (var i = 0; i < num_male_names; i ++) {
   male_names.concat(male_names[i].toUpperCase());
 }
 
