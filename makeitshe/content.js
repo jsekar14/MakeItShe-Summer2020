@@ -14,6 +14,16 @@ for (var i = 0; i < num_male_names; i ++){
   
 }
 
+var num_fnames = values_name.length;
+for (var i = 0; i < num_fnames; i ++){
+  
+  values_name[i] = values_name[i].toLowerCase();
+  values_name[i] = values_name[i][0].toUpperCase() + values_name[i].substr(1);
+  values_name.concat(values_name[i].toUpperCase());
+  
+}
+
+
 
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
@@ -175,7 +185,7 @@ function applyContent () {
 
           
           
-            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && values_name.indexOf ( matched ) >= 0 && highlighting === true) {
               
                  if ( male_names.indexOf (matched) >= 0) {
 
