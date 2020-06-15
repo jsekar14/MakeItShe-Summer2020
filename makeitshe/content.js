@@ -3,7 +3,6 @@
 var turn_on = false; // Default
 var name_dict = window.name_dict;
 var word_dict = window.word_dict;
-var male_names = Object.keys(name_dict);
 var values_name = fnames;
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
@@ -175,7 +174,7 @@ function applyContent () {
 
         str = str.replace( regex_name, function ( matched ) {
             
-            console.log(male_names);
+            console.log(Object.keys(name_dict));
             var i = words.indexOf(matched);
 
             if ( turnMr === true && words.length === 1 ) {
