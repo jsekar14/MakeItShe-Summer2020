@@ -3,9 +3,11 @@
 var turn_on = false; // Default
 var name_dict = window.name_dict;
 var word_dict = window.word_dict;
+var male_names = Object.keys(name_dict);
 var values_name = fnames;
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
+
 
 var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b") + Object.values( word_dict ).join("\\b|\\b"), "gi" );
 var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|") +  values_name.join("|"), "g" );
@@ -18,7 +20,6 @@ var turnMr = false;
 var all_male_words = Object.keys( word_dict ).concat( Object.keys( name_dict ) );
 var all_female_words = Object.values( word_dict ).concat(Object.keys(word_dict));
 
-//
 
 for ( var i = 0; i < all_male_words.length; i ++ ) {
 
@@ -184,14 +185,14 @@ function applyContent () {
 
             }
 
-            if ( words.indexOf( matched ) >= 0 && all_male_words.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && male_names.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
             } 
           
           
-            if ( words.indexOf( matched ) >= 0 && fnames.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
