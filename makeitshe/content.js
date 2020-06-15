@@ -175,7 +175,7 @@ function applyContent () {
 
         str = str.replace( regex_name, function ( matched ) {
             
-
+            console.log(male_names);
             var i = words.indexOf(matched);
 
             if ( turnMr === true && words.length === 1 ) {
