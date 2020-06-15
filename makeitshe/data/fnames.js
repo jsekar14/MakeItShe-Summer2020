@@ -664,7 +664,6 @@ window.fnames = [
     "GABRIELLE",
     "AUTUMN",
     "KATHARINE",
-    "SUMMER",
     "JODIE",
     "STACI",
     "LEA",
