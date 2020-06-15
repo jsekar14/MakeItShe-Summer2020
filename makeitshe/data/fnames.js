@@ -175,6 +175,7 @@ window.fnames = [
     "BERNICE",
     "AUDREY",
     "YVONNE",
+    "CHRIS",
     "ANNETTE",
     "JUNE",
     "SAMANTHA",
