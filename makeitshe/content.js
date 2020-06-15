@@ -197,7 +197,7 @@ function applyContent () {
             } 
           
           
-            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && values_name.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
