@@ -2045,8 +2045,7 @@ window.fnames = [
     "SHAREN",
     "SHAREE",
     "PATRICK",
-    "PAGE",
-    "AMBIKA"
+    "AMBIKA",
     "LAVINIA",
     "KUM",
     "KACIE",
