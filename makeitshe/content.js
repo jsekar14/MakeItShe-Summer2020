@@ -2,6 +2,12 @@
 
 var turn_on = false; // Default
 var name_dict = window.name_dict;
+var male_names = Object.keys(name_dict);
+
+for (var i = 0; i < male_names.length; i ++) {
+  male_names.concat(male_names[i].toUpperCase());
+}
+
 var word_dict = window.word_dict;
 var values_name = fnames;
 var all_words = Object.assign( {}, name_dict, word_dict );
@@ -186,16 +192,18 @@ function applyContent () {
 
           
           
-            if ( words.indexOf( matched ) >= 0 && values_name.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
+              
+                 if ( male_names.indexOf (matched) >= 0) {
+
+                    return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
+
+                    } 
 
                 return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
             }
-            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
 
-                return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
-
-            } 
           else {
 
                 return matched;
