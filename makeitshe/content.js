@@ -6,7 +6,7 @@ var word_dict = window.word_dict;
 var values_name = fnames;
 
 var num_female_names = fnames.length;
-for(int i = 0; i < num_female_names; i ++){
+for(var i = 0; i < num_female_names; i ++){
   
   values_name[i] = values_name[i].toLowerCase();
   values_name[i] = values_name[i][0].toUpperCase() + values_name[i].substr(1);
