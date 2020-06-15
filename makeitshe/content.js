@@ -2,15 +2,18 @@
 
 var turn_on = false; // Default
 var name_dict = window.name_dict;
-var male_names = Object.keys(name_dict);
-var num_male_names = male_names.length;
-
-for (var i = 0; i < num_male_names; i ++) {
-  male_names.concat(male_names[i].toUpperCase());
-}
-
 var word_dict = window.word_dict;
 var values_name = fnames;
+
+var num_female_names = fnames.length;
+for(int i = 0, i < num_female_names; i ++){
+  
+  values_name[i] = values_name[i].toLowerCase();
+  values_name[i] = values_name[i][0].toUpperCase() + values_name[i].substr(1);
+  values_name.concat(values_name[i].toUpperCase());
+  
+}
+
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
 
@@ -195,13 +198,13 @@ function applyContent () {
           
             if ( words.indexOf( matched ) >= 0 && highlighting === true) {
               
-                 if ( male_names.indexOf (matched) >= 0) {
+                 if ( values_name.indexOf (matched) >= 0) {
 
-                    return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
+                    return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
                     } 
 
-                return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
+              return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';   
 
             }
 
