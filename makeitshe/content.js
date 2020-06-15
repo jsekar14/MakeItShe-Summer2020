@@ -14,14 +14,6 @@ for (var i = 0; i < num_male_names; i ++){
   
 }
 
-var num_female_names = fnames.length;
-for(var i = 0; i < num_female_names; i ++){
-  
-  values_name[i] = values_name[i].toLowerCase();
-  values_name[i] = values_name[i][0].toUpperCase() + values_name[i].substr(1);
-  values_name.concat(values_name[i].toUpperCase());
-  
-}
 
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
@@ -160,27 +152,6 @@ function applyContent () {
 
                 var replacement = '';
 
-
-               /* if ( typeof( all_words[ matched ] ) === 'undefined' ) {
-
-                    replacement = all_words[ matched.toLowerCase() ];
-
-                    if ( matched[0] == matched[0].toUpperCase() ) {
-
-                        if ( replacement ) {
-
-                            replacement = replacement.charAt(0).toUpperCase() + replacement.slice(1);
-
-                        }
-
-                    }
-
-                } else {
-
-                    replacement = all_words[ matched ];
-
-                } */
-
                 return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
 
             } else {
@@ -193,7 +164,6 @@ function applyContent () {
 
         str = str.replace( regex_name, function ( matched ) {
             
-            console.log(values_name[3]);
             var i = words.indexOf(matched);
 
             if ( turnMr === true && words.length === 1 ) {
@@ -209,12 +179,12 @@ function applyContent () {
               
                  if ( male_names.indexOf (matched) >= 0) {
 
-                    return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
+                      return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';   
 
                     } 
 
-              return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';   
 
+              return '<span class="makeitshe ignore-css replacement" style = "background-color: lightgreen">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
             }
 
           else {
