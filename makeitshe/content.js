@@ -4,12 +4,15 @@ var turn_on = false; // Default
 var name_dict = window.name_dict;
 var word_dict = window.word_dict;
 var values_name = fnames;
+var capital_names = fnames;
 
 for (var i = 0; i < values_name.length; i++)
 {
   values_name[i] = values_name[i].toLowerCase();
   values_name[i] = values_name[i][0].toUpperCase() + values_name[i].substr(1);
 } 
+
+values_name.concat(capital_names);
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
 
