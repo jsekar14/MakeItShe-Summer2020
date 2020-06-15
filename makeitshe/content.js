@@ -4,6 +4,12 @@ var turn_on = false; // Default
 var name_dict = window.name_dict;
 var word_dict = window.word_dict;
 var values_name = fnames;
+
+for (var i = 0; i < values_name.length; i++)
+{
+  values_name[i] = values_name[i].toLowerCase();
+  values_name[i] = values_name[i][0].toUpperCase() + values_name[i].substr(1);
+} 
 var all_words = Object.assign( {}, name_dict, word_dict );
 var highlighting = false; 
 
@@ -174,7 +180,7 @@ function applyContent () {
 
         str = str.replace( regex_name, function ( matched ) {
             
-            console.log(Object.keys(name_dict));
+            console.log(Object.keys(values_name));
             var i = words.indexOf(matched);
 
             if ( turnMr === true && words.length === 1 ) {
