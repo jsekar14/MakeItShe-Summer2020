@@ -3,17 +3,16 @@
 var turn_on = false; // Default
 var name_dict = window.name_dict;
 var word_dict = window.word_dict;
+var values_name = fnames;
 var all_words = Object.assign( {}, name_dict, word_dict );
-var fnames = window.fnames;
 var highlighting = false; 
 
 var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b") + Object.values( word_dict ).join("\\b|\\b"), "gi" );
-var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|") +  fnames.join("|"), "g" );
+var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|") +  values_name.join("|"), "g" );
 
 var m_count = 0, f_count = 0;
 var m_percent = 0, f_percent = 0;
 var processed = false;
-var values_name = fnames;
 var turnMr = false;
 
 var all_male_words = Object.keys( word_dict ).concat( Object.keys( name_dict ) );
@@ -185,7 +184,7 @@ function applyContent () {
 
             }
 
-            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && all_male_words.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
