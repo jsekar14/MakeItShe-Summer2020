@@ -7,6 +7,8 @@ var all_words = Object.assign( {}, name_dict, word_dict );
 var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b"), "gi" );
 var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|"), "g" );
 
+var strip = new RegExp(/-ad-|ad|audio|media|video|ai2html|banner|breadcrumbs|citation|combx|comment|community|cover-wrap|disqus|discussion|external|extra|footer|gdpr|head|header|legends|menu|navigation|nav|other|reference|related|remark|replies|rss|shoutbox|sidebar|skyscraper|social|sponsor|supplemental|ad-break|agegate|pagination|pager|popup|yom-remote/gi);
+
 var m_count = 0, f_count = 0;
 var m_percent = 0, f_percent = 0;
 var processed = false;
@@ -16,7 +18,8 @@ var turnMr = false;
 var all_male_words = Object.keys( word_dict).concat( Object.keys( name_dict ) );;
 var all_female_words = Object.values( word_dict ).concat( Object.values( name_dict ) );;
 
-//
+var mfnames = ["ETHAN", "CHRIS", "JOE", "NICK", "TOM", "ERIC", "JACOB", "RILEY", "GREG", "CLAY", "GRAHAM", "JUSTIN", "BARACK"];
+var ffnames = ["ASHLYN", "CHRISTINA", "CAROLE", "JUSTINE", "ASHLEY", "JENNIFER", "BRITTANY", "ERIKA", "HAILEY"];
 
 
 for ( var i = 0; i < all_male_words.length; i ++ ) {
@@ -32,15 +35,63 @@ for ( var i = 0; i < all_female_words.length; i ++ ) {
 }
 
 //
+var temp_male_words = "male words:\n";
+var temp_female_words = "female words:\n";
+var temp_male_last_names = [];
+var temp_female_last_names = [];
+
+
+
+
 
 function applyContent () {
 
     if ( processed ) return;
 
-    $('body :not(script) :not(iframe)').contents().filter( function () {
+    $("body").find("p, div,span"). contents().filter( function () { 
 
-        return this.nodeType === 3 && this.id !== 'adContent' && this.id !== 'dockedBanner' && this.id !== 'google_image_div';
 
+        if (this.parentNode.nodeName === "SCRIPT" || this.parentNode.nodeName ==="STYLE" || this.parentNode.nodeName === "IMG"
+            || this.parentNode.nodeName === "LI" || this.parentNode.nodeName === "UL" || this.parentNode.nodeName === "IFRAME"
+            || this.parentNode.nodeName === "NOSCRIPT" || this.parentNode.nodeName === "CITE"){
+            return false;
+        }
+        
+        if (this.nodeType === 1) {
+        
+            var res1 = [];
+            var outertag1 = this.outerHTML;
+            outertag1 = outertag1.substring(0, outertag1.indexOf('>'));
+            res1 = outertag1.match(strip);
+            
+            if (Array.isArray(res1) && res1.length > 0){
+                
+                return false;
+            }
+        }
+                
+        var res = [];
+        if (this.nodeType === 3)
+        {
+            if (this.parentNode.parentNode.nodeName === "LI" || this.parentNode.parentNode.parentNode.nodeName === "LI"){
+                return false;
+            }
+            
+            var outertag = this.parentNode.outerHTML;
+            outertag = outertag.substring(0, outertag.indexOf('>'));
+            res = outertag.match(strip);
+        }
+        else {
+            return false;
+        }
+        if (Array.isArray(res) && res.length > 0) {
+            return false;
+        }
+        /*if (this.nodeValue.split(' ').length < 15) {
+            return false;
+            }*/
+        return true;
+        
     }).replaceWith( function () {
 
         var str = this.nodeValue;
@@ -81,30 +132,68 @@ function applyContent () {
 
         //Delete surname after female name
 
-        for ( var i = 0; i < words.length; i ++ ) {
+                for ( var i = 0; i < words.length - 1; i ++ ) {
 
-            if ( values_name.indexOf( words[ i ].toUpperCase() ) !== -1 || name_dict[ words[ i ] ] && name_dict[ words[ i + 1 ] ] ) {
+            if ( ffnames.indexOf( words[ i ].toUpperCase() ) !== -1 || name_dict[ words[ i ] ] && name_dict[ words[ i + 1 ] ] ) {
 
-                words.splice( i + 1, 1 );
+                nextWord = words[i+1];
+                if (/[A-Z]/.test(nextWord[0]) && temp_female_last_names.indexOf(nextWord) === -1) {
+                
+                    temp_female_last_names.push(words[i + 1]);
+                    words.splice( i + 1, 1 );
+                    
+                }
+
+            }
+
+        }
+
+        for ( var i = 0; i < temp_female_last_names.length; i ++) {
+        
+            temp_female_last_names[i] = temp_female_last_names[i].toLowerCase();
+            
+        }
+        
+        //Delete surname after male name
+        
+        for ( var i = 0; i < words.length - 1; i ++ ) {
+
+            if ( mfnames.indexOf( words[ i ].toUpperCase() ) !== -1 || name_dict[ words[ i ] ] && name_dict[ words[ i + 1 ] ] ) {
+
+                nextWord = words[i+1];
+                if (/[A-Z]/.test(nextWord[0]) && temp_male_last_names.indexOf(nextWord) === -1) {
+                
+                    temp_male_last_names.push(words[i + 1]);
+                    words.splice( i + 1, 1 );
+                    
+                }
 
             }
 
         }
         
+        for ( var i = 0; i < temp_male_last_names.length; i ++) {
+        
+            temp_male_last_names[i] = temp_male_last_names[i].toLowerCase();
+            
+        }
+            
 
         // Count Male/Female Words
 
         for ( var i = 0; i < words.length; i ++ ) {
 
-            if ( all_male_words.indexOf( words[ i ].toLowerCase() ) >= 0 ) {
+            if ( all_male_words.indexOf( words[ i ].toLowerCase() ) >= 0 || temp_male_last_names.indexOf(words[i].toLowerCase() ) >= 0 || mfnames.indexOf(words[i].toUpperCase() ) >= 0) {
 
                 m_count ++;
+                temp_male_words += words[i] + "\n";
 
             }
 
-            if ( all_female_words.indexOf( words[ i ].toLowerCase() ) >= 0 ) {
+            if ( all_female_words.indexOf( words[ i ].toLowerCase() ) >= 0 || temp_female_last_names.indexOf(words[i].toLowerCase() ) >= 0 || ffnames.indexOf(words[i].toUpperCase() ) >= 0) {
 
                 f_count ++;
+                temp_female_words += words[i] +"\n";
 
             }
 
@@ -164,59 +253,10 @@ function applyContent () {
             }
 
         });
+        
 
 
- str = str.replace( regex_word, function ( matched, index, input ) {
-
-            var lastSymbol = input[ index + matched.length ] || '';
-
-            if ( lastSymbol !== '"' && lastSymbol !== '`' && lastSymbol !== "'" && lastSymbol !== '' && lastSymbol !== ',' && lastSymbol !== '.' && lastSymbol !== ')' && lastSymbol !== ';' && lastSymbol !== '!' && lastSymbol !== '?' && lastSymbol !== ' ' ) {
-
-                return matched;
-
-            }
-
-            if ( matched === 'Mr' || matched === 'M' || matched === 'Lord' ) {
-
-                // Delete surname after Mr, Ms, M, Mme, Lady, Lord
-                turnMr = true;
-
-            }
-
-            if ( words.indexOf( matched ) >= 0 ) {
-
-                var replacement = '';
-
-                if ( typeof( all_words[ matched ] ) === 'undefined' ) {
-
-                    replacement = all_words[ matched.toLowerCase() ];
-
-                    if ( matched[0] == matched[0].toUpperCase() ) {
-
-                        if ( replacement ) {
-
-                            replacement = replacement.charAt(0).toUpperCase() + replacement.slice(1);
-
-                        }
-
-                    }
-
-                } else {
-
-                    replacement = all_words[ matched ];
-
-                }
-
-                return '<span class="makeitshe ignore-css replacement">' + replacement + '<span class="ignore-css tooltiptext">' + matched + '</span></span>';
-
-            } else {
-
-                return matched;
-
-            }
-
-        });
-
+/**
         str = str.replace( regex_name, function ( matched ) {
 
             if ( turnMr === true && words.length === 1 ) {
@@ -241,8 +281,10 @@ function applyContent () {
 
         return str;
 
+
     });
 
+    **/
     
     m_percent = Math.round( m_count / (m_count + f_count) * 100 );
     f_percent = Math.round( f_count / (m_count + f_count) * 100 );
@@ -250,9 +292,16 @@ function applyContent () {
     processed = true;
   
 
+});
 
+let a = document.createElement('a');
+a.href = "data:application/octet-stream,"+encodeURIComponent(temp_male_words + temp_female_words);
+a.download = 'list.txt';
+a.click();
 
 };
+
+
 
 
 
@@ -294,7 +343,7 @@ chrome.runtime.onMessage.addListener( function ( msg, sender, sendResponse ) {
     if ( msg.activate ) {
 
         applyContent();
-
+        
     } 
 
     else {
