@@ -180,7 +180,7 @@ function applyContent () {
 
         str = str.replace( regex_name, function ( matched ) {
             
-            console.log(Object.keys(values_name));
+            console.log(values_name);
             var i = words.indexOf(matched);
 
             if ( turnMr === true && words.length === 1 ) {
