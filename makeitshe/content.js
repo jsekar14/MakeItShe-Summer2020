@@ -185,7 +185,7 @@ function applyContent () {
 
             }
 
-            if ( words.indexOf( matched ) >= 0 && male_names.indexOf( matched ) >= 0 && highlighting === true) {
+            if ( words.indexOf( matched ) >= 0 && highlighting === true) {
 
                 return '<span class="makeitshe ignore-css replacement">' + words[i] + '<span class="ignore-css tooltiptext">' + matched + '</span>' + '</span>';
 
