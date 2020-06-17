@@ -269,7 +269,6 @@ chrome.runtime.onMessage.addListener( function ( msg, sender, sendResponse ) {
 
         });
         
-        highlighting = false;
         processed = false;
 
     }
