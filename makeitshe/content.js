@@ -268,7 +268,8 @@ chrome.runtime.onMessage.addListener( function ( msg, sender, sendResponse ) {
             el.outerHTML = original_html;
 
         });
-
+        
+        highlighting = false;
         processed = false;
 
     }
