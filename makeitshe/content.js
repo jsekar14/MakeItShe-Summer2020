@@ -26,7 +26,7 @@ for (var i = 0; i < num_fnames; i ++){
 
 
 var all_words = Object.assign( {}, name_dict, word_dict );
-var highlighting = true; 
+var highlighting = false; 
 
 
 var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b") + Object.values( word_dict ).join("\\b|\\b"), "gi" );
