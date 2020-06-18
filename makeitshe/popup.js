@@ -3,10 +3,9 @@ var activeDomain, currentUrl;
 
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.sendMessage(tabs[0].id, {greeting: "reset"}, function(response) {
-    console.log(response.reload);
+    console.log(response.farewell);
   });
 });
-
 
 
 function updateSiteStateList(site, state) {
