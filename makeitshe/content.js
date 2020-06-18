@@ -441,7 +441,7 @@ chrome.runtime.onMessage.addListener(
       highlighting = false;
       applyContent();
       }
-
+    sendResponse({farewell: "goodbye"});
     }
   });
 
