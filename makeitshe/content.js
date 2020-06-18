@@ -438,6 +438,8 @@ chrome.runtime.onMessage.addListener(
                 "from the extension");
     if (request.greeting == "reset")
     {
+      highlighting = false;
+      applyContent();
       sendResponse({farewell: "goodbye"});
     }
   });
