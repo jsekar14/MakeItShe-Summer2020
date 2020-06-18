@@ -440,6 +440,7 @@ chrome.runtime.onMessage.addListener(
       applyContent();
       sendResponse(reload: "complete"});
     }
+  }
   });
 
 
