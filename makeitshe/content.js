@@ -266,7 +266,6 @@ chrome.runtime.onMessage.addListener( function ( msg, sender, sendResponse ) {
 
             var original_html = $( '.tooltiptext', $( this ) ).html();
             el.outerHTML = original_html;
-            console.log("extension-off");
 
         });
         
