@@ -433,6 +433,15 @@ chrome.runtime.onMessage.addListener(
     }
   });
 
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.greeting == "reset"){
+      highlighting = false;
+      applyContent();
+      sendResponse(reload: "complete"});
+    }
+  });
+
 
  var message_suggestions = {
    "he": "they",
