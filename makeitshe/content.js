@@ -433,7 +433,12 @@ chrome.runtime.onMessage.addListener(
     }
   });
 
-
+function getBgColors (tab) {
+  // But for now, let's just make sure what we have so
+  // far is working as expected.
+  alert('The browser action was clicked! Yay!');
+}
+chrome.browserAction.onClicked.addListener(getBgColors);
 
  var message_suggestions = {
    "he": "they",
