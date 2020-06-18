@@ -422,11 +422,9 @@ chrome.runtime.onMessage.addListener(
       console.log(highlighting);
       if (highlighting === true){
         highlighting = false;
-        console.log(highlighting)
       }
       else {
         highlighting = true; 
-        console.log(highlighting)
       }
       applyContent();
       sendResponse({farewell: "goodbye"});
@@ -435,13 +433,19 @@ chrome.runtime.onMessage.addListener(
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
     if (request.greeting == "reset"){
+      console.log(highlighting);
       highlighting = false;
       applyContent();
-      sendResponse(reload: "complete"});
+      }
+
     }
-  }
   });
+
+
 
 
  var message_suggestions = {
