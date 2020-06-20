@@ -1,5 +1,11 @@
 window.fnames = [
     "MARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "AUGUST",
+    "MARCH",
     "PATRICIA",
     "LINDA",
     "BARBARA",
