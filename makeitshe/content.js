@@ -6,6 +6,9 @@ var word_dict = window.word_dict;
 var values_name = fnames;
 var male_names = Object.keys( name_dict );
 
+var notnames = ["April", "May", "June", "America", "India", "China"]
+var prepos = ["In", "During", "On", "Of", "From", "in", "during", "on", "of", "from"]
+
 
 var num_male_names = male_names.length;
 for (var i = 0; i < num_male_names; i ++){
@@ -186,6 +189,12 @@ function applyContent () {
           
           
             if ( words.indexOf( matched ) >= 0 && values_name.indexOf ( matched ) >= 0 && highlighting === true) {
+              
+                 if (notnames.indexOf (matched) >= 0){
+                   
+                   return matched;
+                   
+                 }
               
                  if ( male_names.indexOf (matched) >= 0) {
 
