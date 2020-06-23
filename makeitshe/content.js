@@ -6,7 +6,7 @@ var word_dict = window.word_dict;
 var values_name = fnames;
 var male_names = Object.keys( name_dict );
 
-var notnames = ["April", "May", "June", "America", "India", "China"]
+var notnames = ["April", "May", "June", "America", "India", "China", "Dean"]
 var prepos = ["In", "During", "On", "Of", "From", "in", "during", "on", "of", "from"]
 
 
@@ -190,7 +190,7 @@ function applyContent () {
           
             if ( words.indexOf( matched ) >= 0 && values_name.indexOf ( matched ) >= 0 && highlighting === true) {
               
-                 if (notnames.indexOf (matched) >= 0){
+                 if (notnames.indexOf (matched) >= 0 && prepos.includes( words[i - 1] ) ){
                    
                    return matched;
                    
