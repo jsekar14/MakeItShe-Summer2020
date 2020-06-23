@@ -191,7 +191,7 @@ function applyContent () {
           
             if ( words.indexOf( matched ) >= 0 && values_name.indexOf ( matched ) >= 0 && highlighting === true) {
               
-                 if (notnames.indexOf (matched) >= 0 && (prepos.includes( words[i - 1] ) || regex_num.test( words[i + 1] )) ){
+                 if (notnames.indexOf (matched) >= 0 && prepos.includes( words[i - 1]) ){
                    
                    return matched;
                    
