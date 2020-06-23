@@ -57,9 +57,7 @@ for ( var i = 0; i < all_female_words.length; i ++ ) {
 
 }
 
-function hasNum (myString) {
-  return /\d/.test(myString);
-}
+
 
 //
 
@@ -183,6 +181,10 @@ function applyContent () {
         str = str.replace( regex_name, function ( matched ) {
             
             var i = words.indexOf(matched);
+          
+            function hasNum (myString) {
+              return /\d/.test(myString);
+              }
 
             if ( turnMr === true && words.length === 1 ) {
 
@@ -197,7 +199,7 @@ function applyContent () {
               
                  if (notnames.indexOf (matched) >= 0 ){
                    
-                   if (prepos.includes( words[i - 1]))
+                   if (prepos.includes( words[i - 1]) || hasNum (words [ i + 1]) )
                    
                       return matched;
                    
