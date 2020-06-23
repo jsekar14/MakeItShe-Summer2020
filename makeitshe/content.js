@@ -57,6 +57,10 @@ for ( var i = 0; i < all_female_words.length; i ++ ) {
 
 }
 
+function hasNum (myString) {
+  return /\d/.test(myString);
+}
+
 //
 
 function applyContent () {
@@ -193,7 +197,7 @@ function applyContent () {
               
                  if (notnames.indexOf (matched) >= 0 ){
                    
-                   if (prepos.includes( words[i - 1]) || /\d/.test( words [i + 1]) === true;)
+                   if (prepos.includes( words[i - 1]))
                    
                       return matched;
                    
