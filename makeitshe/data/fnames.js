@@ -7,6 +7,8 @@ window.fnames = [
     "JENNIFER",
     "MARIA",
     "SUSAN",
+    "AUGUST",
+    "APRIL",
     "MARGARET",
     "DOROTHY",
     "LISA",
