@@ -6,8 +6,8 @@ var word_dict = window.word_dict;
 var values_name = fnames;
 var male_names = Object.keys( name_dict );
 
-var notnames = ["April", "May", "June", "America", "India", "China", "Dean"]
-var prepos = ["In", "During", "On", "Of", "From", "in", "during", "on", "of", "from"]
+var notnames = ["April", "May", "June", "America", "India", "China"]
+var prepos = ["In", "During", "On", "Of", "From", "Beginning", "in", "during", "on", "of", "from", "beginning"]
 
 
 var num_male_names = male_names.length;
@@ -34,7 +34,7 @@ var highlighting = false;
 
 var regex_word = new RegExp( "\\b" + Object.keys( word_dict ).join("\\b|\\b") + Object.values( word_dict ).join("\\b|\\b"), "gi" );
 var regex_name = new RegExp( "\\b" + Object.keys( name_dict ).join("|") +  values_name.join("|"), "gi" );
-var regex_num = /d/;
+var regex_num = /\d/;
 
 var m_count = 0, f_count = 0;
 var m_percent = 0, f_percent = 0;
@@ -191,7 +191,7 @@ function applyContent () {
           
             if ( words.indexOf( matched ) >= 0 && values_name.indexOf ( matched ) >= 0 && highlighting === true) {
               
-                 if (notnames.indexOf (matched) >= 0 && prepos.includes( words[i - 1]) ){
+                 if (notnames.indexOf (matched) >= 0 && (prepos.includes( words[i - 1]) || regex_num.test( words[i + 1] ) ){
                    
                    return matched;
                    
