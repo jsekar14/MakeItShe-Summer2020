@@ -554,6 +554,8 @@ $('#back-dashboard').click(function () {
     });
 });
 
+/*
+
 $('#sender-email').keyup(function () {
     // $('#btn-send-message').attr('href','mailto:makeitshe@gmail.com?subject='+$(this).val()+'&body='+$('#email-message').val());
     $('#btn-send-message').attr('href', 'mailto:ncampowoytuk@gmail.com?subject=' + $(this).val() + '&body=' + $('#email-message').val());
@@ -562,7 +564,8 @@ $('#email-message').keyup(function () {
     // $('#btn-send-message').attr('href','mailto:makeitshe@gmail.com?subject='+$('#sender-email').val()+'&body='+$(this).val());
     $('#btn-send-message').attr('href', 'mailto:ncampowoytuk@gmail.com?subject=' + $('#sender-email').val() + '&body=' + $(this).val());
 });
-/*
+*/
+
 $('#btn-send-message').click(function(){
    Email.send({
      Host : "smtp.elasticemail.com",
@@ -578,7 +581,7 @@ $('#btn-send-message').click(function(){
  );
 
 });
-*/
+
 
 chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
     currentUrl = tabs[0].url;
