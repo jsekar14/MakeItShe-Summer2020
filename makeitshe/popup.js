@@ -204,15 +204,13 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector("#btn-send-message").addEventListener('click', () => {
   
   Email.send({
-    Host : "smtp.mailtrap.io",
-    Username : "<7d354e6274b348>",
-    Password : "<3388b937ed9fa5>",
-    To : 'jananisekar14@gmail.com',
+    SecureToken: "25728980-e62f-45ee-8593-2aa3f89d3153",
+    To : "jananisekar14@gmail.com",
     From : "janani@makeitshe.org",
     Subject : "Test email",
-    Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+    Body : "hello"
 }).then(
-  message => alert(message)
+
     );
   console.log("sent");
   
