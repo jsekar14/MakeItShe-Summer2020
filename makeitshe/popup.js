@@ -566,6 +566,8 @@ $('#email-message').keyup(function () {
 });
 */
 
+/*
+
 $('#btn-send-message').click(function(){
    Email.send({
      Host : "smtp.elasticemail.com",
@@ -581,6 +583,7 @@ $('#btn-send-message').click(function(){
  );
 
 });
+*/
 
 
 chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
