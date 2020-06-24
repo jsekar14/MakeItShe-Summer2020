@@ -220,6 +220,7 @@ $('#btn-back').click(function () {
     $('#email-content').hide();
 });
 */
+/*
 $('#send-ref-mail').click(function () {
     var subject = document.getElementById("sender-email");
     var message = document.getElementById("email-message");
@@ -229,7 +230,7 @@ $('#send-ref-mail').click(function () {
     $('#content').hide();
     $('#email-content').show();
 });
-
+*/
 $('#go-to-twitter').click(function(){
     var newURL = "https://twitter.com/Makeitshe";
     chrome.tabs.create({ url: newURL });
@@ -561,6 +562,7 @@ $('#email-message').keyup(function () {
     // $('#btn-send-message').attr('href','mailto:makeitshe@gmail.com?subject='+$('#sender-email').val()+'&body='+$(this).val());
     $('#btn-send-message').attr('href', 'mailto:ncampowoytuk@gmail.com?subject=' + $('#sender-email').val() + '&body=' + $(this).val());
 });
+/*
 $('#btn-send-message').click(function(){
    Email.send({
      Host : "smtp.elasticemail.com",
@@ -576,6 +578,7 @@ $('#btn-send-message').click(function(){
  );
 
 });
+*/
 
 chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
     currentUrl = tabs[0].url;
