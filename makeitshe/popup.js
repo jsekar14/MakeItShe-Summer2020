@@ -207,7 +207,7 @@ document.querySelector("#btn-send-message").addEventListener('click', () => {
     Host: "Smtp.mailtrap.io",
     Username: "7d354e6274b348",
     Password: "3388b937ed9fa5",
-    To : "jananisekar14@gmail.com",
+    To : "makeitshe@gmail.com",
     From : "janani@makeitshe.org",
     Subject : "Test email",
     Body : "hello"
