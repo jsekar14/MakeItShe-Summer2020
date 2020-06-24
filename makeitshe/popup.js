@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
+/*
 $('#report-error').click(function () {
     var subject = document.getElementById("sender-email");
     var message = document.getElementById("email-message");
@@ -213,11 +213,13 @@ $('#report-error').click(function () {
     $('#content').hide();
     $('#email-content').show();
 });
+*/
+/*
 $('#btn-back').click(function () {
     $('#content').show();
     $('#email-content').hide();
 });
-
+*/
 $('#send-ref-mail').click(function () {
     var subject = document.getElementById("sender-email");
     var message = document.getElementById("email-message");
@@ -559,21 +561,21 @@ $('#email-message').keyup(function () {
     // $('#btn-send-message').attr('href','mailto:makeitshe@gmail.com?subject='+$('#sender-email').val()+'&body='+$(this).val());
     $('#btn-send-message').attr('href', 'mailto:ncampowoytuk@gmail.com?subject=' + $('#sender-email').val() + '&body=' + $(this).val());
 });
-// $('#btn-send-message').click(function(){
-//   Email.send({
-//     Host : "smtp.elasticemail.com",
-//     Port:2525,
-//     Username : "raj.rajuchauhan7@gmail.com",
-//     Password : "4ca2f072-a4da-4b53-a1f0-afee2fca44d1",
-//     To : 'makeitshe@gmail.com',
-//     From : $('#sender-email').val(),
-//     Subject : "subject",
-//     Body : $('#email-message').val()
-// }).then(
-//   message => alert(message)
-// );
+$('#btn-send-message').click(function(){
+   Email.send({
+     Host : "smtp.elasticemail.com",
+     Port:2525,
+     Username : "raj.rajuchauhan7@gmail.com",
+     Password : "4ca2f072-a4da-4b53-a1f0-afee2fca44d1",
+     To : 'janani@makeitshe.org',
+     From : 'makeitshe@gmail.com,
+     Subject : "User Suggestion",
+     Body : $('#email-message').val()
+ }).then(
+   message => alert(message)
+ );
 
-// });
+});
 
 chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
     currentUrl = tabs[0].url;
