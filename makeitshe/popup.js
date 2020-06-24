@@ -208,7 +208,7 @@ document.querySelector("#btn-send-message").addEventListener('click', () => {
     Username : "<janani@makeitshe.org>",
     Password : "<testing123>",
     To : 'jananisekar14@gmail.com',
-    From : "makeitshe@gmail.com",
+    From : "janani@makeitshe.org",
     Subject : "Test email",
     Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
 }).then(
