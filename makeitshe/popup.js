@@ -201,6 +201,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+$('#btn-send-message").click(function () {
+  
+  Email.send({
+    Host : "smtp.mailtrap.io",
+    Username : "<janani@makeitshe.org>",
+    Password : "<testing123>",
+    To : 'jananisekar14@gmail.com',
+    From : "makeitshe@gmail.com",
+    Subject : "Test email",
+    Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+}).then(
+  message => alert(message)
+);
+
+  
+  });
 
 /*
 $('#report-error').click(function () {
