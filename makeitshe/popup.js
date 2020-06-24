@@ -214,7 +214,7 @@ document.querySelector("#btn-send-message").addEventListener('click', () => {
 }).then(
   message => alert(message)
     );
-  console.log("sent")
+  console.log("sent");
   
   });
 
