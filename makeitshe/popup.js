@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-document.getElementById("email-message").addEventListener('click',() => {
+document.getElementById("email-message").addEventListener('input',() => {
   console.log("hello");
 }
 
