@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById("email-message").addEventListener('input',() => {
   console.log("hi");
   submitButton = document.getElementById("btn-send-message");
-  submitButton.disabled = true;
+  submitButton.disabled = false;
 });
 
 document.getElementById("btn-send-message").addEventListener('click', () => {
