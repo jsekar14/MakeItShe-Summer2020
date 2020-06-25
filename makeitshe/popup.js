@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-$("#btn-send-message").addEventListener('click', () => {
+document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
   Email.send({
     Host: "Smtp.mailtrap.io",
