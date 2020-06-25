@@ -208,13 +208,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById("email-message").addEventListener('input',() => {
   console.log("hi");
-  submitButton = document.getElementById("btn-send-message");
-  submitButton.disabled = false;
+  var newinput = $("#email-message").val();
+  var submitButton = document.getElementById("btn-send-message");
+  if (newinput != ""){
+      submitButton.disabled = false;
+  }
+  
+  else{
+    
+    submitButton.disabled = true;
+    
+  }
+
+
 });
 
 document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
-  Email.send({
+ /* Email.send({
     Host: "Smtp.mailtrap.io",
     Username: "7d354e6274b348",
     Password: "3388b937ed9fa5",
@@ -224,7 +235,7 @@ document.getElementById("btn-send-message").addEventListener('click', () => {
     Body : suggestion
 }).then(
 
-    );
+    ); */
   console.log("sent");
   
   });
