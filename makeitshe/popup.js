@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById("email-message").addEventListener('input',() => {
-  console.log("hello");
+  console.log("hi");
 });
 
 document.getElementById("btn-send-message").addEventListener('click', () => {
