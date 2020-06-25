@@ -208,6 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById("email-message").addEventListener('input',() => {
   console.log("hi");
+  submitButton = document.getElementById("btn-send-message");
+  submitButton.disabled = true;
 });
 
 document.getElementById("btn-send-message").addEventListener('click', () => {
