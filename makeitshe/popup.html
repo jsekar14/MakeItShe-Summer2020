@@ -102,7 +102,7 @@
         }
      
         button#btn-send-message,
-        #btn-back {
+       {
             float: left;
             background: lightblue;
             color: white;
@@ -113,7 +113,19 @@
             text-decoration: none;
             height: 20px;
         }
-        
+        #btn-send-message:hover{
+           background-color: skyblue; /* Green */
+           color: white;
+         .btn:focus,
+      #btn-send-message:focus,
+      #btn-send-message:active:focus,
+      #btn-send-message.active:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+      }
+         
+     }
      textarea#email-message {
             height: 25px;
             resize: vertical;
