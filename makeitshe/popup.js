@@ -100,8 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#disabled').show();
         const highlighting = document.querySelector('.highlighting');
         highlighting.disabled = true;
-        const suggestion = doccument.querySelector(.'autocomplete');
-        suggestion.disabled = true; 
+
         
  
     } else {
@@ -111,8 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#disabled').hide();
         const highlighting = document.querySelector('.highlighting');
         highlighting.disabled = false;    
-        const suggestion = doccument.querySelector(.'autocomplete');
-        suggestion.disabled = false;
+
 
     }
 
@@ -126,8 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#disabled').hide();
             const highlighting = document.querySelector('.highlighting');
             highlighting.disabled = false;
-            const suggestion = document.querySelector(.'suggestion');
-            suggestion.disabled = false;
+
             updateSiteStateList(activeDomain, true);
             chrome.browserAction.setIcon({ path: "icon_on.png" });
 
@@ -148,8 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#disabled').show();
             const highlighting = document.querySelector('.highlighting');
             highlighting.disabled = true;
-            const suggestion = document.querySelector(.'suggestion');
-            suggestion.disabled = false;
+
             updateSiteStateList(activeDomain, false);
             chrome.browserAction.setIcon({ path: "icon_off.png" });
 
@@ -210,7 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-document.querySelector("#btn-send-message").addEventListener('click', () => {
+
+$r("#btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
   Email.send({
     Host: "Smtp.mailtrap.io",
