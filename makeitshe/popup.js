@@ -100,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#disabled').show();
         const highlighting = document.querySelector('.highlighting');
         highlighting.disabled = true;
-        $('#email-message").disabled = true;
+        
+ 
     } else {
 
         $('#on-off').switchButton({ checked: true, labels_placement: "left" });
@@ -108,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#disabled').hide();
         const highlighting = document.querySelector('.highlighting');
         highlighting.disabled = false;    
-        $('#email-message").disabled = false;
 
     }
 
