@@ -206,6 +206,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+document.getElementById("email-message").addEventListener('click',() => {
+  console.log("hello");
+}
 
 document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
