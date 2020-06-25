@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.querySelector("#btn-send-message").addEventListener('click', () => {
-  
+  var suggestion = $("#email-message").val();
   Email.send({
     Host: "Smtp.mailtrap.io",
     Username: "7d354e6274b348",
@@ -210,7 +210,7 @@ document.querySelector("#btn-send-message").addEventListener('click', () => {
     To : "makeitshe@gmail.com",
     From : "janani@makeitshe.org",
     Subject : "Test email",
-    Body : "hello"
+    Body : suggestion
 }).then(
 
     );
