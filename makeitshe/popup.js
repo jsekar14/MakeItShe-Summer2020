@@ -204,8 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.querySelector("#btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
-  if suggestion === ""
-    return;
   Email.send({
     Host: "Smtp.mailtrap.io",
     Username: "7d354e6274b348",
