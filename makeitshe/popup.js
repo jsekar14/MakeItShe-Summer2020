@@ -229,7 +229,7 @@ document.getElementById("btn-send-message").addEventListener('click', () => {
     Host: "Smtp.elasticemail.com",
     Username: "janani@makeitshe.org",
     Password: "00B4261E24F97B0F131C88FE9F63C174DDD5",
-    To : "jananisekar14@gmail.com",
+    To : "makeitshe@gmail.com",
     From : "janani@makeitshe.org",
     Subject : "Test email",
     Body : suggestion
