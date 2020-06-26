@@ -226,9 +226,7 @@ document.getElementById("email-message").addEventListener('input',() => {
 document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
   Email.send({
-    Host: "Smtp.elasticemail.com",
-    Username: "janani@makeitshe.org",
-    Password: "00B4261E24F97B0F131C88FE9F63C174DDD5",
+    SecureToken: "15e46beb-40b4-450f-9ad3-77d85193674b",
     To : "makeitshe@gmail.com",
     From : "janani@makeitshe.org",
     Subject : "Test email",
