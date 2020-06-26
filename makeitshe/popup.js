@@ -227,7 +227,7 @@ document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
   Email.send({
     SecureToken: "15e46beb-40b4-450f-9ad3-77d85193674b",
-    To : "makeitshe@gmail.com",
+    To : "jananisekar14@gmail.com",
     From : "janani@makeitshe.org",
     Subject : "Test email",
     Body : suggestion
@@ -604,22 +604,7 @@ $('#email-message').keyup(function () {
 
 /*
 
-$('#btn-send-message').click(function(){
-   Email.send({
-     Host : "smtp.elasticemail.com",
-     Port:2525,
-     Username : "raj.rajuchauhan7@gmail.com",
-     Password : "4ca2f072-a4da-4b53-a1f0-afee2fca44d1",
-     To : 'janani@makeitshe.org',
-     From : 'makeitshe@gmail.com,
-     Subject : "User Suggestion",
-     Body : $('#email-message').val()
- }).then(
-   message => alert(message)
- );
 
-});
-*/
 
 
 chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
