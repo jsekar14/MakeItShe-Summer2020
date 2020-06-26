@@ -98,9 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#on-off').switchButton({ checked: false, labels_placement: "left" });
         $('#content').hide();
         $('#disabled').show();
-        const highlighting = document.querySelector('.highlighting');
-        highlighting.disabled = true;
-        $('#email-message').prop ("disabled", true);
+        $('#myCheck').prop ("disabled", true);;
+        $('#email-message').hide();
 
         
  
@@ -109,9 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#on-off').switchButton({ checked: true, labels_placement: "left" });
         $('#content').show();
         $('#disabled').hide();
-        const highlighting = document.querySelector('.highlighting');
-        highlighting.disabled = false;  
-        $('#email-message').prop ("disabled", false);
+        $('#myCheck').prop ("disabled", false);
+        $('#email-message').show();
 
 
     }
@@ -124,9 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             $('#content').show();
             $('#disabled').hide();
-            const highlighting = document.querySelector('.highlighting');
-            highlighting.disabled = false;
-            $('#email-message').prop("disabled", false);
+            $('#myCheck').prop("disabled", false);
+            $('#email-message').show();
 
             updateSiteStateList(activeDomain, true);
             chrome.browserAction.setIcon({ path: "icon_on.png" });
@@ -146,9 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             $('#content').hide();
             $('#disabled').show();
-            const highlighting = document.querySelector('.highlighting');
-            highlighting.disabled = true;
-            $('#email-message').prop("disabled", true); 
+            $('#myCheck').prop("disabled", true);
+            $('#email-message').hide(); 
 
             updateSiteStateList(activeDomain, false);
             chrome.browserAction.setIcon({ path: "icon_off.png" });
