@@ -226,7 +226,7 @@ document.getElementById("email-message").addEventListener('input',() => {
 document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
   Email.send({
-    Host: "Smtp.mailtrap.io",
+    Host: "Smtp.elasticemail.com",
     Username: "janani@makeitshe.org",
     Password: "00B4261E24F97B0F131C88FE9F63C174DDD5",
     To : "jananisekar14@gmail.com",
