@@ -227,9 +227,9 @@ document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
   Email.send({
     SecureToken: "15e46beb-40b4-450f-9ad3-77d85193674b",
-    To : "jananisekar14@gmail.com",
+    To : "makeitshe@gmail.com",
     From : "janani@makeitshe.org",
-    Subject : "Test email",
+    Subject : "User Feedback",
     Body : suggestion
 }).then(
 
