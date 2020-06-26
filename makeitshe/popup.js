@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#content').hide();
         $('#disabled').show();
         $('#myCheck').prop ("disabled", true);;
-        $('#email-message').hide();
+        $('#form').hide();
 
         
  
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#content').show();
         $('#disabled').hide();
         $('#myCheck').prop ("disabled", false);
-        $('#email-message').show();
+        $('#form').show();
 
 
     }
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#content').show();
             $('#disabled').hide();
             $('#myCheck').prop("disabled", false);
-            $('#email-message').show();
+            $('#form').show();
 
             updateSiteStateList(activeDomain, true);
             chrome.browserAction.setIcon({ path: "icon_on.png" });
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#content').hide();
             $('#disabled').show();
             $('#myCheck').prop("disabled", true);
-            $('#email-message').hide(); 
+            $('#form').hide(); 
 
             updateSiteStateList(activeDomain, false);
             chrome.browserAction.setIcon({ path: "icon_off.png" });
