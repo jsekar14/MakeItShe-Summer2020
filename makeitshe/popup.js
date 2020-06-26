@@ -225,17 +225,17 @@ document.getElementById("email-message").addEventListener('input',() => {
 
 document.getElementById("btn-send-message").addEventListener('click', () => {
   var suggestion = $("#email-message").val();
- /* Email.send({
+  Email.send({
     Host: "Smtp.mailtrap.io",
-    Username: "7d354e6274b348",
-    Password: "3388b937ed9fa5",
-    To : "makeitshe@gmail.com",
+    Username: "janani@makeitshe.org",
+    Password: "00B4261E24F97B0F131C88FE9F63C174DDD5",
+    To : "jananisekar14@gmail.com",
     From : "janani@makeitshe.org",
     Subject : "Test email",
     Body : suggestion
 }).then(
 
-    ); */
+    ); 
   console.log("sent");
   
   });
