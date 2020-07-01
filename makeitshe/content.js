@@ -419,13 +419,19 @@ chrome.runtime.onMessage.addListener(
                 "from a content script:" + sender.tab.url :
                 "from the extension");
     if (request.greeting == "highlighting"){
-      console.log(highlighting);
-      if (highlighting === true){
-        highlighting = false;
-      }
-      else {
-        highlighting = true; 
-      }
+      highlighting = true;
+      applyContent();
+      sendResponse({farewell: "goodbye"});
+    }
+  });
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    if (request.greeting == "nohighlighting"){
+      highlighting = false;
       applyContent();
       sendResponse({farewell: "goodbye"});
     }
