@@ -31,6 +31,8 @@ function updateSiteStateList(site, state) {
 var m, f;
 
 function setStats(stats) {
+  
+    reCheck();
 
     if (!stats) return;
 
@@ -135,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#disabled').hide();
             const highlighting = document.querySelector('.highlighting');
             highlighting.disabled = false;
-            reCheck();
             updateSiteStateList(activeDomain, true);
             chrome.browserAction.setIcon({ path: "icon_on.png" });
 
