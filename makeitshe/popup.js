@@ -20,7 +20,6 @@ var m, f;
 
 function setStats(stats) {
 
-    reCheck();
     if (!stats) return;
 
     m = stats.stats.male;
