@@ -1,7 +1,7 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
-
+function reCheck() {
 var lastChecked = localStorage.getItem("checked");
 console.log(lastChecked);
 
@@ -10,6 +10,7 @@ if (lastChecked === "true"){
 }
 else{
    $('#myCheck').prop("checked", false);
+}
 }
 
 
@@ -29,7 +30,7 @@ var m, f;
 
 function setStats(stats) {
 
-
+    reCheck();
     if (!stats) return;
 
     m = stats.stats.male;
