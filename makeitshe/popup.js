@@ -64,7 +64,8 @@ function setStats(stats) {
 
 function highlight (){
   
-  if ($('#myCheck')is(:checked)){
+    var checked = 
+  if ($('#myCheck').prop("checked") == true){
     
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlighting"}, function(response) {
