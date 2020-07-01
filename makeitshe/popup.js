@@ -1,6 +1,7 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
+console.log(localStorage.getItem("checked"));
 if (localStorage.getItem("checked") === true){
   $('#myCheck').prop('checked', true);
 }
