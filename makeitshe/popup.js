@@ -5,14 +5,15 @@ var activeDomain, currentUrl;
 function reCheck (){
 
 var lastChecked = localStorage.getItem("checked");
-console.log("have a nice day");
 console.log(lastChecked);
 
 if (lastChecked === true){
   document.getElementById('myCheck').checked = true;
+  console.log('have a nice day');
 }
 else{
   document.getElementById('myCheck').checked = false;
+  console.log('jk do not');
 }
 
 }
@@ -83,10 +84,9 @@ function setStats(stats) {
 $('.highlighting').on('click', function () {
     
   var checked = $('#myCheck').prop('checked');
-  console.log(checked);
   localStorage.setItem ("checked", checked);  
-  console.log(localStorage.getItem("checked"));  
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  console.log("got it");
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlighting"}, function(response) {
     console.log(response.farewell);
   });
