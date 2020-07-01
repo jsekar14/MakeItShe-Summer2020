@@ -13,7 +13,6 @@ if (lastChecked === true){
 else{
   $('#myCheck').prop('checked', false);
 }
-*/
 
 
 function updateSiteStateList(site, state) {
