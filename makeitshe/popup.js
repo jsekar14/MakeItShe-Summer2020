@@ -7,10 +7,10 @@ console.log("have a nice day");
 console.log(lastChecked);
 
 if (lastChecked === true){
-  $('#myCheck').prop('checked', true);
+  document.getElementById('myCheck').checked = true;
 }
 else{
-  $('#myCheck').prop('checked', false);
+  document.getElementById('myCheck').checked = false;
 }
 
 
