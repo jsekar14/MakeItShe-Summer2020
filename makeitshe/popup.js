@@ -2,10 +2,10 @@ var siteStateList;
 var activeDomain, currentUrl;
 
 if (localStorage.getItem("checked") === true){
-  $('#myCheck').prop('checked') === true;
+  $('#myCheck').prop('checked', true);
 }
 else{
-  $('#myCheck').prop('checked') === false;
+  $('#myCheck').prop('checked', false);
 }
 
 
