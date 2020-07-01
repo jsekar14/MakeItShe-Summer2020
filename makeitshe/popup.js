@@ -3,6 +3,7 @@ var activeDomain, currentUrl;
 
 
 var lastChecked = localStorage.getItem("checked");
+console.log("have a nice day");
 console.log(lastChecked);
 
 /*
