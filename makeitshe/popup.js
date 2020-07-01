@@ -2,7 +2,7 @@ var siteStateList;
 var activeDomain, currentUrl;
 
 console.log(localStorage.getItem("checked"));
-if (localStorage.getItem("checked") === true){
+if (localStorage.getItem("checked") == true){
   console.log("have a nice day");
   $('#myCheck').prop('checked', true);
 }
