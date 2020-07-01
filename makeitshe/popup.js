@@ -2,21 +2,17 @@ var siteStateList;
 var activeDomain, currentUrl;
 
 
-function reCheck (){
-
 var lastChecked = localStorage.getItem("checked");
 console.log(lastChecked);
 
 if (lastChecked === "true"){
-  document.getElementById('myCheck').checked = true;
-  console.log('have a nice day');
+  $('#myCheck').prop("checked", true);
 }
 else{
-  document.getElementById('myCheck').checked = false;
-  console.log('jk do not');
+   $('#myCheck').prop("checked", false);
 }
 
-}
+
 
 
 
@@ -32,8 +28,7 @@ function updateSiteStateList(site, state) {
 var m, f;
 
 function setStats(stats) {
-  
-    reCheck();
+
 
     if (!stats) return;
 
