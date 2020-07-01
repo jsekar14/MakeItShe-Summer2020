@@ -13,6 +13,10 @@ else{
 }
 }
 
+window.addEventListener('load', (event) => {
+  localStorage.setItem("checked", false);
+  reCheck();
+});
 
 
 
