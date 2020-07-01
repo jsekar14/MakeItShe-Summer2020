@@ -1,7 +1,8 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
-document.getElementById("myCheck").checked = true;
+
+function reCheck (){
 
 var lastChecked = localStorage.getItem("checked");
 console.log("have a nice day");
@@ -14,6 +15,7 @@ else{
   document.getElementById('myCheck').checked = false;
 }
 
+}
 
 function updateSiteStateList(site, state) {
 
