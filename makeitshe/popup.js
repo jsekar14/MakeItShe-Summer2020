@@ -1,17 +1,6 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
-function reCheck() {
-var lastChecked = localStorage.getItem("checked");
-console.log(lastChecked);
-
-if (lastChecked === "true"){
-  $('#myCheck').prop("checked", true);
-}
-else{
-   $('#myCheck').prop("checked", false);
-}
-}
 
 
 
@@ -74,22 +63,36 @@ function setStats(stats) {
 
 };
 
-
+function highlight (){
+  
+  if ($'#myCheck').prop('checked') === true){
+    
+      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlighting"}, function(response) {
+      console.log(response.farewell);
+      });
+      });
+    
+  }
+  
+  else{
+    
+      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {greeting: "nohighlighting"}, function(response) {
+      console.log(response.farewell);
+      });
+      });
+    
+   
+  }
+  
+  
+}
         
 
 
-$('.highlighting').on('click', function () {
-    
-  var checked = $('#myCheck').prop('checked');
-  localStorage.setItem ("checked", checked);  
-  console.log("got it");
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlighting"}, function(response) {
-    console.log(response.farewell);
-  });
-});
-});
-
+$('.highlighting').on('click', highlight);
+ 
 
      
 
