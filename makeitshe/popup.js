@@ -1,6 +1,7 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
+document.getElementById("myCheck").checked = true;
 
 var lastChecked = localStorage.getItem("checked");
 console.log("have a nice day");
