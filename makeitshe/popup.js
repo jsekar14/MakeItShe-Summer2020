@@ -1,6 +1,11 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
+
+var lastChecked = localStorage.getItem("checked");
+console.log(lastChecked);
+
+/*
 console.log(localStorage.getItem("checked"));
 if (localStorage.getItem("checked") == true){
   console.log("have a nice day");
@@ -9,7 +14,7 @@ if (localStorage.getItem("checked") == true){
 else{
   $('#myCheck').prop('checked', false);
 }
-
+*/
 
 
 function updateSiteStateList(site, state) {
