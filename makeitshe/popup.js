@@ -7,7 +7,7 @@ function reCheck (){
 var lastChecked = localStorage.getItem("checked");
 console.log(lastChecked);
 
-if (lastChecked === true){
+if (lastChecked === "true"){
   document.getElementById('myCheck').checked = true;
   console.log('have a nice day');
 }
