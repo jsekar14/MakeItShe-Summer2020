@@ -1,11 +1,13 @@
 var siteStateList;
 var activeDomain, currentUrl;
 
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.sendMessage(tabs[0].id, {greeting: "reset"}, function(response) {
-    console.log(response.farewell);
-  });
-});
+if (localStorage.getItem("checked") === true){
+  $('#myCheck').prop('checked') === true;
+}
+else{
+  $('#myCheck').prop('checked') === false;
+}
+
 
 
 function updateSiteStateList(site, state) {
@@ -67,8 +69,10 @@ function setStats(stats) {
         
 
 
-document.querySelector('.highlighting').addEventListener('click', () => {
+$('.highlighting').on('click', function () {
     
+  var checked = $('#myCheck').prop('checked');
+  localStorage.setItem ("checked", checked);  
     
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlighting"}, function(response) {
