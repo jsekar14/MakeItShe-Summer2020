@@ -17,6 +17,8 @@ else{
 
 }
 
+reCheck();
+
 function updateSiteStateList(site, state) {
 
     siteStateList[site] = state;
