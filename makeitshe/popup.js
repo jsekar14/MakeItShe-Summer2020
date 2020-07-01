@@ -72,6 +72,7 @@ function setStats(stats) {
 $('.highlighting').on('click', function () {
     
   var checked = $('#myCheck').prop('checked');
+  console.log(checked);
   localStorage.setItem ("checked", checked);  
     
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
