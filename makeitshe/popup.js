@@ -74,7 +74,7 @@ $('.highlighting').on('click', function () {
   var checked = $('#myCheck').prop('checked');
   console.log(checked);
   localStorage.setItem ("checked", checked);  
-    
+  console.log(localStorage.getItem("checked");  
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.sendMessage(tabs[0].id, {greeting: "highlighting"}, function(response) {
     console.log(response.farewell);
