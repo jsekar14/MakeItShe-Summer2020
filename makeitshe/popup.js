@@ -6,9 +6,7 @@ var lastChecked = localStorage.getItem("checked");
 console.log("have a nice day");
 console.log(lastChecked);
 
-/*
-console.log(localStorage.getItem("checked"));
-if (localStorage.getItem("checked") == true){
+if (lastChecked === true){
   console.log("have a nice day");
   $('#myCheck').prop('checked', true);
 }
