@@ -19,7 +19,8 @@ function updateSiteStateList(site, state) {
 var m, f;
 
 function setStats(stats) {
-
+    
+    highlight();
     if (!stats) return;
 
     m = stats.stats.male;
