@@ -19,8 +19,7 @@ function updateSiteStateList(site, state) {
 var m, f;
 
 function setStats(stats) {
-    
-    highlight();
+
     if (!stats) return;
 
     m = stats.stats.male;
@@ -104,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { from: 'popup', action: 'getStats' }, setStats);
-
+    highlight();
     });
 
     // On / Off Button
